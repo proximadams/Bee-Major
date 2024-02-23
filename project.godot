@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Bee Major"
-run/main_scene="res://Scenes/Bee.tscn"
+run/main_scene="res://Scenes/MainScene.tscn"
 config/icon="res://icon.png"
 
 [gui]
