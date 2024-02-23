@@ -132,6 +132,30 @@ tracks/9/keys = {
 "update": 1,
 "values": [ Vector2( 0, 60 ), Vector2( 0, 0 ) ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("Sprites:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1, 1.1, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.25, 0.2 ), Vector2( 0.25, 0.25 ), Vector2( 0.25, 0.25 ), Vector2( 0.25, 0.2 ), Vector2( 0.25, 0.25 ), Vector2( 0.25, 0.25 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Sprites:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1, 1.1, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 15 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 15 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -255,6 +279,30 @@ tracks/9/keys = {
 "update": 0,
 "values": [ Vector2( 0, 60 ) ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("Sprites:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.25, 0.25 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Sprites:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -15 ) ]
+}
 
 [node name="Bee" type="Node2D"]
 position = Vector2( 600, 268 )
@@ -265,6 +313,7 @@ anims/Dance = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 
 [node name="Sprites" type="Node2D" parent="."]
+position = Vector2( 0, -15 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="Butt" type="Sprite" parent="Sprites"]
