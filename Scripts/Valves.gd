@@ -1,5 +1,8 @@
 extends Node2D
 
+const NOTE_START_Y = -300
+const DIST_BETWEEN_NOTE = 3300
+
 var noteRes = load('res://Scenes/Note.tscn')
 
 export var song = 'scale'
@@ -29,13 +32,11 @@ func _ready():
 	file.close()
 	_generate_notes(songArr)
 
-# 3300 apart
-
 func _generate_notes(songArr):
-	var positionY = 3000# TODO move to constant
+	var positionY = NOTE_START_Y
 	# loop over array. For each, generate a note scene
 	for note in songArr:
-		positionY -= 3300# TODO move to constant
+		positionY -= DIST_BETWEEN_NOTE# TODO move to constant
 		if note:
 			var noteInst = noteRes.instance()
 			noteInst.finger1down = valveNoteMap[note][0]
@@ -45,4 +46,4 @@ func _generate_notes(songArr):
 			noteInst.position.y = positionY
 
 func _process(delta):
-	$notes.position.y += 200 * delta
+	$notes.position.y += 400 * delta

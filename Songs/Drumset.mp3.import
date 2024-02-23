@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Drumset.mp3-95dbdb8ae282fd118fdc80a9d8553727.mp3str"
+
+[deps]
+
+source_file="res://Songs/Drumset.mp3"
+dest_files=[ "res://.import/Drumset.mp3-95dbdb8ae282fd118fdc80a9d8553727.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
