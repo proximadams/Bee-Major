@@ -1,0 +1,48 @@
+extends Node2D
+
+var noteRes = load('res://Scenes/Note.tscn')
+
+export var song = 'scale'
+
+var valveNoteMap = [
+	null,
+	[false, false, false],#. C
+	[true, true, true],#. C#
+	[true, false, true],#. D
+	[false, true, true],#. D#
+	[true, true, false],#. E
+	[true, false, false],#. F
+	[false, true, false],#. F#
+	[false, false, false],#. G
+	[false, true, true],#. G#
+	[true, true, false],#. A
+	[true, false, false],#. A#
+	[false, true, false],#. B
+	[false, false, false]#. C
+]
+
+func _ready():
+	var file = File.new()
+	var songArr
+	file.open('res://Songs/' + song + '.json', File.READ)
+	songArr = parse_json(file.get_as_text())
+	file.close()
+	_generate_notes(songArr)
+
+# 3300 apart
+
+func _generate_notes(songArr):
+	var positionY = 3000# TODO move to constant
+	# loop over array. For each, generate a note scene
+	for note in songArr:
+		positionY -= 3300# TODO move to constant
+		if note:
+			var noteInst = noteRes.instance()
+			noteInst.finger1down = valveNoteMap[note][0]
+			noteInst.finger2down = valveNoteMap[note][1]
+			noteInst.finger3down = valveNoteMap[note][2]
+			$notes.add_child(noteInst)
+			noteInst.position.y = positionY
+
+func _process(delta):
+	$notes.position.y += 200 * delta
