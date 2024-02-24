@@ -7,6 +7,7 @@ var noteRes = load('res://Scenes/Note.tscn')
 
 export var song = 'scale'
 
+# TODO use flats not sharps
 var valveNoteMap = [
 	null,
 	[false, false, false],#. C
