@@ -41,11 +41,11 @@ func _generate_notes(songArr):
 	# loop over array. For each, generate a note scene
 	for note in songArr:
 		positionY -= DIST_BETWEEN_NOTE# TODO move to constant
-		if note:
+		if note[0] != 0:
 			lastNote = noteRes.instance()
-			lastNote.finger1down = valveNoteMap[note][0]
-			lastNote.finger2down = valveNoteMap[note][1]
-			lastNote.finger3down = valveNoteMap[note][2]
+			lastNote.finger1down = valveNoteMap[note[0]][0]
+			lastNote.finger2down = valveNoteMap[note[0]][1]
+			lastNote.finger3down = valveNoteMap[note[0]][2]
 			$notes/list.add_child(lastNote)
 			lastNote.position.y = positionY
 
