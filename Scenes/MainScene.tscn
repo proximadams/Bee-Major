@@ -138,7 +138,7 @@ anims/RESET = SubResource( 2 )
 stream = ExtResource( 3 )
 script = ExtResource( 4 )
 
-[node name="Trumpet" type="AudioStreamPlayer2D" parent="."]
+[node name="TrumpetAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
 script = ExtResource( 5 )
 

@@ -14,6 +14,10 @@ config/name="Bee Major"
 run/main_scene="res://Scenes/MainScene.tscn"
 config/icon="res://Sprites/Other/Icon.png"
 
+[autoload]
+
+MyUtil="*res://Scripts/MyUtil.gd"
+
 [display]
 
 window/size/fullscreen=true

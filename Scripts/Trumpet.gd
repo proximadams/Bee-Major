@@ -1,5 +1,7 @@
 extends AudioStreamPlayer2D
 
+var prevValveStr = 'T T T'
+
 var soundResArr = [
 	null,
 	load('res://mp3_files/_C4.mp3'),# 1. C
@@ -17,57 +19,31 @@ var soundResArr = [
 	load('res://mp3_files/C5.mp3')# 13. C
 ]
 
+# _ _ _ means all valves are down
+# T T T means all valves are up
+var currAmbiguousNoteObj = {
+	'_ _ _': 7,
+	'_ _ T': 10,
+	'_ T _': 8,
+	'_ T T': 11,
+	'T _ _': 9,
+	'T _ T': 12,
+	'T T _': 10,
+	'T T T': 13,
+}
+
 var currValvesPressed = [false, false, false]
 
+func current_note(valveStr, noteIndex):
+	currAmbiguousNoteObj[valveStr] = noteIndex
+	if prevValveStr != 'T T T' and valveStr == 'T T T' and (currValvesPressed == [false, false, false] or !Input.is_action_pressed('blow')):
+		_set_stream()
+	prevValveStr = valveStr
+
 func _set_stream():
-	# TODO change to make note match current song note when ambiguous
-	# _ _ _ means all valves pressed and T T T means no valves pressed
-	if currValvesPressed[0]:
-		# _ ? ?
-		pass
-		if currValvesPressed[1]:
-			# _ _ ?
-			if currValvesPressed[2]:
-				# _ _ _
-				stream = soundResArr[7]# G♭
-				# stream = soundResArr[2]# D♭
-			else:
-				# _ _ T
-				stream = soundResArr[10]# A
-				# stream = soundResArr[5]# E
-		else:
-			# _ T ?
-			if currValvesPressed[2]:
-				# _ T _
-				stream = soundResArr[8]# G
-				# stream = soundResArr[3]# D
-			else:
-				# _ T T
-				stream = soundResArr[11]# B♭
-				# stream = soundResArr[6]# F
-	else:
-		# T ? ?
-		pass
-		if currValvesPressed[1]:
-			# T _ ?
-			if currValvesPressed[2]:
-				# T _ _
-				stream = soundResArr[9]# A♭
-				# stream = soundResArr[4]# E♭
-			else:
-				# T _ T
-				stream = soundResArr[12]# B
-				# stream = soundResArr[7]# G♭
-		else:
-			# T T ?
-			if currValvesPressed[2]:
-				# T T _ (equivalent of _ _ T)
-				stream = soundResArr[10]# A
-				# stream = soundResArr[5]# E
-			else:
-				# T T T
-				stream = soundResArr[13]# C
-				# stream = soundResArr[8]# G
+	var valveStr = MyUtil.valve_array_to_str(currValvesPressed)
+	var noteIndex = currAmbiguousNoteObj[valveStr]
+	stream = soundResArr[noteIndex]
 
 func _refresh_stream():
 	if Input.is_action_pressed('finger1') != currValvesPressed[0] or \

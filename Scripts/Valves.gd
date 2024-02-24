@@ -5,9 +5,13 @@ const DIST_BETWEEN_NOTE = 3000
 
 var noteRes = load('res://Scenes/Note.tscn')
 
-export var song = 'scale'
+var song = 'scale'
 
 var lastNote
+var songArr
+var timerSoFar = 0.0
+
+onready var trumpetAudio = get_tree().get_root().find_node('TrumpetAudio', true, false)
 
 # TODO use flats not sharps
 var valveNoteMap = [
@@ -29,14 +33,13 @@ var valveNoteMap = [
 
 func _ready():
 	var file = File.new()
-	var songArr
 	file.open('res://Songs/' + song + '.json', File.READ)
 	songArr = parse_json(file.get_as_text())
 	file.close()
-	_generate_notes(songArr)
+	_generate_notes()
 	pass
 
-func _generate_notes(songArr):
+func _generate_notes():
 	var positionY = NOTE_START_Y
 	# loop over array. For each, generate a note scene
 	for note in songArr:
@@ -59,10 +62,21 @@ func _loop():
 	var noteArr = $notes/list.get_children()
 	$notes.global_position.y = 0
 	$notes/list.global_position.y = -900
+	timerSoFar = 0.0
 
 	for noteInst in noteArr:
 		noteInst.reset_alpha()
 
-func _process(_delta):
+func _process(delta):
 	if 900 < lastNote.global_position.y:
 		_loop()
+
+	timerSoFar += delta
+	var noteInSongIndex = int(timerSoFar + 0.5) - 2
+	if 0 <= noteInSongIndex and noteInSongIndex < songArr.size():
+		# the note to play which is an index of valveNoteMap
+		var noteIndex = songArr[noteInSongIndex][0]
+		var valveArr = valveNoteMap[noteIndex]
+		if valveArr:
+			var valveStr = MyUtil.valve_array_to_str(valveArr)
+			trumpetAudio.current_note(valveStr, noteIndex)
