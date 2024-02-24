@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Bee.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Valves/Target.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://mp3_files/_C4.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Sprites/Other/Background.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/GUI/Perfect.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Other/WhiteRectangle.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -89,6 +90,12 @@ tracks/0/keys = {
 
 [node name="MainScene" type="Node2D"]
 
+[node name="Grey" type="Sprite" parent="."]
+modulate = Color( 0.54902, 0.54902, 0.54902, 1 )
+position = Vector2( 520, 300 )
+scale = Vector2( 0.28, 0.28 )
+texture = ExtResource( 10 )
+
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.705882 )
 position = Vector2( 520, 300 )
@@ -134,3 +141,7 @@ script = ExtResource( 4 )
 [node name="Trumpet" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
 script = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 510, 300 )
+current = true
