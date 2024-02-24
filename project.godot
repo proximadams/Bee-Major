@@ -16,6 +16,7 @@ config/icon="res://Sprites/Other/Icon.png"
 
 [display]
 
+window/size/fullscreen=true
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
