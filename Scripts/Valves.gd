@@ -12,19 +12,19 @@ var lastNote
 # TODO use flats not sharps
 var valveNoteMap = [
 	null,
-	[false, false, false],#. C
-	[true, true, true],#. D♭
-	[true, false, true],#. D
-	[false, true, true],#. E♭
-	[true, true, false],#. E
-	[true, false, false],#. F
-	[false, true, false],#. G♭
-	[false, false, false],#. G
-	[false, true, true],#. A♭
-	[true, true, false],#. A
-	[true, false, false],#. B♭
-	[false, true, false],#. B
-	[false, false, false]#. C
+	[false, false, false],# 1. C
+	[true, true, true],# 2. D♭
+	[true, false, true],# 3. D
+	[false, true, true],# 4. E♭
+	[true, true, false],# 5. E
+	[true, false, false],# 6. F
+	[false, true, false],# 7. G♭
+	[false, false, false],# 8. G
+	[false, true, true],# 9. A♭
+	[true, true, false],# 10. A
+	[true, false, false],# 11. B♭
+	[false, true, false],# 12. B
+	[false, false, false]# 13. C
 ]
 
 func _ready():
