@@ -52,6 +52,9 @@ func _generate_notes(songArr):
 func move_list_down():
 	$notes/list.global_position.y += 900
 
+func onTimePerfect():
+	$Target/AnimationPlayer.play('perfect')
+
 func _loop():
 	var noteArr = $notes/list.get_children()
 	$notes.global_position.y = 0
