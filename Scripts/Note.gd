@@ -11,3 +11,7 @@ func _ready():
 		$Finger2.texture = load('res://Sprites/Valves/Finger2Filled.png')
 	if finger3down:
 		$Finger3.texture = load('res://Sprites/Valves/Finger3Filled.png')
+
+func _process(_delta):
+	if self.global_position.y > 450:
+		self.modulate.a = 0.1
