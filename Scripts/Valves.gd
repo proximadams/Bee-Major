@@ -7,6 +7,8 @@ var noteRes = load('res://Scenes/Note.tscn')
 
 export var song = 'scale'
 
+var lastNote
+
 # TODO use flats not sharps
 var valveNoteMap = [
 	null,
@@ -32,6 +34,7 @@ func _ready():
 	songArr = parse_json(file.get_as_text())
 	file.close()
 	_generate_notes(songArr)
+	pass
 
 func _generate_notes(songArr):
 	var positionY = NOTE_START_Y
@@ -39,12 +42,24 @@ func _generate_notes(songArr):
 	for note in songArr:
 		positionY -= DIST_BETWEEN_NOTE# TODO move to constant
 		if note:
-			var noteInst = noteRes.instance()
-			noteInst.finger1down = valveNoteMap[note][0]
-			noteInst.finger2down = valveNoteMap[note][1]
-			noteInst.finger3down = valveNoteMap[note][2]
-			$notes/list.add_child(noteInst)
-			noteInst.position.y = positionY
+			lastNote = noteRes.instance()
+			lastNote.finger1down = valveNoteMap[note][0]
+			lastNote.finger2down = valveNoteMap[note][1]
+			lastNote.finger3down = valveNoteMap[note][2]
+			$notes/list.add_child(lastNote)
+			lastNote.position.y = positionY
 
 func move_list_down():
 	$notes/list.global_position.y += 900
+
+func _loop():
+	var noteArr = $notes/list.get_children()
+	$notes.global_position.y = 0
+	$notes/list.global_position.y = -900
+
+	for noteInst in noteArr:
+		noteInst.reset_alpha()
+
+func _process(_delta):
+	if 900 < lastNote.global_position.y:
+		_loop()

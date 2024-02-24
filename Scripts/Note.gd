@@ -15,3 +15,6 @@ func _ready():
 func _process(_delta):
 	if self.global_position.y > 450:
 		self.modulate.a = 0.1
+
+func reset_alpha():
+	self.modulate.a = 1.0

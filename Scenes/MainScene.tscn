@@ -64,7 +64,7 @@ scale = Vector2( 0.28, 0.28 )
 texture = ExtResource( 8 )
 
 [node name="Bee" parent="." instance=ExtResource( 1 )]
-position = Vector2( 280, 250 )
+position = Vector2( 240, 270 )
 
 [node name="Valves" type="Node2D" parent="."]
 script = ExtResource( 6 )
