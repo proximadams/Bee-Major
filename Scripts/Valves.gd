@@ -1,7 +1,7 @@
 extends Node2D
 
-const NOTE_START_Y = -300
-const DIST_BETWEEN_NOTE = 3300
+const NOTE_START_Y = 300
+const DIST_BETWEEN_NOTE = 3000
 
 var noteRes = load('res://Scenes/Note.tscn')
 
@@ -43,8 +43,8 @@ func _generate_notes(songArr):
 			noteInst.finger1down = valveNoteMap[note][0]
 			noteInst.finger2down = valveNoteMap[note][1]
 			noteInst.finger3down = valveNoteMap[note][2]
-			$notes.add_child(noteInst)
+			$notes/list.add_child(noteInst)
 			noteInst.position.y = positionY
 
-func _process(delta):
-	$notes.position.y += 400 * delta
+func move_list_down():
+	$notes/list.global_position.y += 900
