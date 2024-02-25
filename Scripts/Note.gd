@@ -34,7 +34,7 @@ func _process(_delta):
 	if 400 < self.global_position.y and self.global_position.y < 500:
 		var valveStr = MyUtil.valve_array_to_str([finger1down, finger2down, finger3down])
 		window = 1# good
-		if 440 < self.global_position.y and self.global_position.y < 460:
+		if 435 < self.global_position.y and self.global_position.y < 465:
 			window = 2# perfect
 		valves.setWindowValue(window, valveStr)
 
