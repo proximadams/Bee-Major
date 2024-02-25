@@ -5,7 +5,7 @@ const DIST_BETWEEN_NOTE = 3000
 
 var noteRes = load('res://Scenes/Note.tscn')
 
-var song = 'scale'
+var song = 'output'
 
 var lastNote
 var songArr

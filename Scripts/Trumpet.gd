@@ -1,6 +1,6 @@
 extends AudioStreamPlayer2D
 
-var prevValveStr = 'T T T'
+var prevNoteIndex
 
 var soundResArr = [
 	null,
@@ -22,9 +22,9 @@ var soundResArr = [
 # _ _ _ means all valves are down
 # T T T means all valves are up
 var currAmbiguousNoteObj = {
-	'_ _ _': 7,
+	'_ _ _': 8,
 	'_ _ T': 10,
-	'_ T _': 8,
+	'_ T _': 3,
 	'_ T T': 11,
 	'T _ _': 9,
 	'T _ T': 12,
@@ -36,9 +36,9 @@ var currValvesPressed = [false, false, false]
 
 func current_note(valveStr, noteIndex):
 	currAmbiguousNoteObj[valveStr] = noteIndex
-	if prevValveStr != 'T T T' and valveStr == 'T T T' and (currValvesPressed == [false, false, false] or !Input.is_action_pressed('blow')):
+	if prevNoteIndex != noteIndex and valveStr == 'T T T' and (currValvesPressed == [false, false, false] or !Input.is_action_pressed('blow')):
 		_set_stream()
-	prevValveStr = valveStr
+	prevNoteIndex = noteIndex
 
 func _set_stream():
 	var valveStr = MyUtil.valve_array_to_str(currValvesPressed)
