@@ -11,7 +11,7 @@ var noteRes = load('res://Scenes/Note.tscn')
 var song = 'output'
 
 var lastNote
-var nextDist = -3000
+var nextDist = -1500
 var songArr
 var windowObj
 
