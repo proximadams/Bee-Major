@@ -6,6 +6,9 @@ var pause_menu_instance
 # Tracking whether the game is paused or not
 var is_game_paused = false
 
+func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
+
 func _input(event):
 	# Check if the game is paused
 	if is_game_paused and pause_menu_instance:
@@ -17,5 +20,5 @@ func _input(event):
 			toggle_pause()
 
 func toggle_pause():
-	PauseScene.visible = get_tree().paused
+	PauseScene.visible = !get_tree().paused
 	get_tree().paused = !get_tree().paused

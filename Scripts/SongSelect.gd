@@ -20,7 +20,7 @@ func _input(event):
 			selected_song = focused_control	.get_song()
 			# Load the selected song
 			load_selected_song(selected_song)
-			
+
 # Load selected song
 func load_selected_song(song):
 	if song:
