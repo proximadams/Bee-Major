@@ -4,19 +4,19 @@ var prevNoteIndex
 
 var soundResArr = [
 	null,
-	load('res://mp3_files/_C4.mp3'),# 1. C
-	load('res://mp3_files/_D♭4.mp3'),# 2. D♭
-	load('res://mp3_files/_D4.mp3'),# 3. D
-	load('res://mp3_files/_E♭4.mp3'),# 4. E♭
-	load('res://mp3_files/_E4.mp3'),# 5. E
-	load('res://mp3_files/_F4.mp3'),# 6. F
-	load('res://mp3_files/_G♭4.mp3'),# 7. G♭
-	load('res://mp3_files/_G4.mp3'),# 8. G
-	load('res://mp3_files/A♭4.mp3'),# 9. A♭
-	load('res://mp3_files/A4.mp3'),# 10. A
-	load('res://mp3_files/B♭4.mp3'),# 11. B♭
-	load('res://mp3_files/B4.mp3'),# 12. B
-	load('res://mp3_files/C5.mp3')# 13. C
+	load('res://mp3_files_sat/_C4.mp3'),# 1. C
+	load('res://mp3_files_sat/_C#4.mp3'),# 2. D♭
+	load('res://mp3_files_sat/_D4.mp3'),# 3. D
+	load('res://mp3_files_sat/_D#4.mp3'),# 4. E♭
+	load('res://mp3_files_sat/_E4.mp3'),# 5. E
+	load('res://mp3_files_sat/_F4.mp3'),# 6. F
+	load('res://mp3_files_sat/_F#4.mp3'),# 7. G♭
+	load('res://mp3_files_sat/_G4.mp3'),# 8. G
+	load('res://mp3_files_sat/_G#4.mp3'),# 9. A♭
+	load('res://mp3_files_sat/A4.mp3'),# 10. A
+	load('res://mp3_files_sat/A#4.mp3'),# 11. B♭
+	load('res://mp3_files_sat/B4.mp3'),# 12. B
+	load('res://mp3_files_sat/C5.mp3')# 13. C
 ]
 
 # _ _ _ means all valves are down

@@ -14,7 +14,7 @@
 [sub_resource type="Animation" id=4]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Perfect:visible")
+tracks/0/path = NodePath("Perfect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -23,14 +23,14 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
 resource_name = "perfect"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("Perfect:visible")
+tracks/0/path = NodePath("Perfect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -38,8 +38,8 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ true, true, false ]
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -125,7 +125,7 @@ anims/RESET = SubResource( 4 )
 anims/perfect = SubResource( 3 )
 
 [node name="Perfect" type="Sprite" parent="Valves/Target"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, -66.6667 )
 texture = ExtResource( 9 )
 
