@@ -11,3 +11,7 @@ func play_good():
 
 func play_great():
 	$greatJob.play()
+
+func go_to_select_song():
+	print('aaaa')
+	get_tree().change_scene("res://Scenes/SongSelect.tscn")

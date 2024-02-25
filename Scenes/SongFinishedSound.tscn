@@ -11,15 +11,22 @@ pause_mode = 2
 script = ExtResource( 5 )
 
 [node name="awfulJob" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
 stream = ExtResource( 1 )
 
 [node name="mehJob" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
 stream = ExtResource( 2 )
 
 [node name="goodJob" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
 stream = ExtResource( 3 )
 
 [node name="greatJob" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
 stream = ExtResource( 4 )
 
-[connection signal="finished" from="awfulJob" to="." method="queue_free"]
+[connection signal="finished" from="awfulJob" to="." method="go_to_select_song"]
+[connection signal="finished" from="mehJob" to="." method="go_to_select_song"]
+[connection signal="finished" from="goodJob" to="." method="go_to_select_song"]
+[connection signal="finished" from="greatJob" to="." method="go_to_select_song"]

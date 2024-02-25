@@ -8,19 +8,19 @@ var headStressed2Res = load('res://Sprites/Bee/HeadStressed2.png')
 
 var soundResArr = [
 	null,
-	load('res://mp3_files_sat/_C4.mp3'),# 1. C
-	load('res://mp3_files_sat/_C#4.mp3'),# 2. D♭
-	load('res://mp3_files_sat/_D4.mp3'),# 3. D
-	load('res://mp3_files_sat/_D#4.mp3'),# 4. E♭
-	load('res://mp3_files_sat/_E4.mp3'),# 5. E
-	load('res://mp3_files_sat/_F4.mp3'),# 6. F
-	load('res://mp3_files_sat/_F#4.mp3'),# 7. G♭
-	load('res://mp3_files_sat/_G4.mp3'),# 8. G
-	load('res://mp3_files_sat/_G#4.mp3'),# 9. A♭
-	load('res://mp3_files_sat/A4.mp3'),# 10. A
-	load('res://mp3_files_sat/A#4.mp3'),# 11. B♭
-	load('res://mp3_files_sat/B4.mp3'),# 12. B
-	load('res://mp3_files_sat/C5.mp3')# 13. C
+	load('res://OGGs/C4.ogg'),# 1. C
+	load('res://OGGs/C#3.ogg'),# 2. D♭
+	load('res://OGGs/D3.ogg'),# 3. D
+	load('res://OGGs/D#3.ogg'),# 4. E♭
+	load('res://OGGs/E3.ogg'),# 5. E
+	load('res://OGGs/F3.ogg'),# 6. F
+	load('res://OGGs/F#3.ogg'),# 7. G♭
+	load('res://OGGs/G3.ogg'),# 8. G
+	load('res://OGGs/G#3.ogg'),# 9. A♭
+	load('res://OGGs/A3.ogg'),# 10. A
+	load('res://OGGs/A#3.ogg'),# 11. B♭
+	load('res://OGGs/B3.ogg'),# 12. B
+	load('res://OGGs/C3.ogg')# 13. C
 ]
 
 # _ _ _ means all valves are down
