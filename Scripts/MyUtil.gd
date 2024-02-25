@@ -24,6 +24,6 @@ func valve_array_to_str(valveArr):
 
 func check_fail_song():
 	var songFinishedSound = get_tree().get_root().find_node('SongFinishedSound', true, false)
-	if 1 < scoreArr[0] and scoreArr[1] < scoreArr[0] and scoreArr[2] < scoreArr[0]:
+	if 5 < scoreArr[0] and scoreArr[1] < scoreArr[0] and scoreArr[2] < scoreArr[0]:
 		songFinishedSound.play_awful()
 		get_tree().paused = true

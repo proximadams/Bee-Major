@@ -91,7 +91,12 @@ func setWindowValue(window, valveStr):
 	}
 
 func _end_song():
-	songFinishedSound.play_great()# TODO play different sound based
+	if MyUtil.scoreArr[1] < MyUtil.scoreArr[0] and MyUtil.scoreArr[2] < MyUtil.scoreArr[0]:
+		songFinishedSound.play_meh()
+	elif MyUtil.scoreArr[0] < MyUtil.scoreArr[2] and MyUtil.scoreArr[1] < MyUtil.scoreArr[2]:
+		songFinishedSound.play_great()
+	else:
+		songFinishedSound.play_good()
 	get_tree().paused = true
 
 func _process(_delta):
