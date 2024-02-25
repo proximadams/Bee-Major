@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bee Major Jazz Song Full.mp3-dc0dfde0fd78eff2d394ea294210247d.mp3str"
+
+[deps]
+
+source_file="res://Songs/Bee Major Jazz Song Full.mp3"
+dest_files=[ "res://.import/Bee Major Jazz Song Full.mp3-dc0dfde0fd78eff2d394ea294210247d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

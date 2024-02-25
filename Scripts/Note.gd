@@ -3,12 +3,15 @@ extends Node2D
 var finger1down = false
 var finger2down = false
 var finger3down = false
+var hasSetCurrentNote = false
 var missedThisNote = false
+var noteInSongIndex
 var playedNoteInWindow = false
 
 # 0 = miss, 1 = good, 2 = perfect
 var window = 0
 
+onready var trumpetAudio = get_tree().get_root().find_node('TrumpetAudio', true, false)
 onready var valves = get_tree().get_root().find_node('Valves', true, false)
 
 func _ready():
@@ -20,10 +23,18 @@ func _ready():
 		$Finger3.texture = load('res://Sprites/Valves/Finger3Filled.png')
 
 func _process(_delta):
+	if 400 < self.global_position.y and !hasSetCurrentNote:
+		hasSetCurrentNote = true
+		var noteIndex = valves.songArr[noteInSongIndex][0]
+		var valveArr = valves.valveNoteMap[noteIndex]
+		if valveArr:
+			var valveStr = MyUtil.valve_array_to_str(valveArr)
+			trumpetAudio.current_note(valveStr, noteIndex)
+
 	if 400 < self.global_position.y and self.global_position.y < 500:
 		var valveStr = MyUtil.valve_array_to_str([finger1down, finger2down, finger3down])
 		window = 1# good
-		if 440 < self.global_position.y and self.global_position.y < 460:
+		if 435 < self.global_position.y and self.global_position.y < 465:
 			window = 2# perfect
 		valves.setWindowValue(window, valveStr)
 
@@ -43,3 +54,6 @@ func _process(_delta):
 
 func reset_alpha():
 	self.modulate.a = 1.0
+	hasSetCurrentNote = false
+	missedThisNote = false
+	playedNoteInWindow = false
