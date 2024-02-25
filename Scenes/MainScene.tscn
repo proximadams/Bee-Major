@@ -283,7 +283,7 @@ script = ExtResource( 4 )
 
 [node name="FullAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 13 )
-volume_db = -10.0
+volume_db = -15.0
 script = ExtResource( 4 )
 
 [node name="TrumpetAudio" type="AudioStreamPlayer2D" parent="."]
