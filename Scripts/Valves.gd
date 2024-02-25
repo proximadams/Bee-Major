@@ -15,7 +15,9 @@ var nextDist = -1800
 var songArr
 var windowObj
 
+onready var bandAudio = get_tree().get_root().find_node('BandAudio', true, false)
 onready var songFinishedSound = get_tree().get_root().find_node('SongFinishedSound', true, false)
+onready var trumpetOnlyAudio = get_tree().get_root().find_node('TrumpetOnlyAudio', true, false)
 
 # TODO use flats not sharps
 var valveNoteMap = [
@@ -41,7 +43,15 @@ func _ready():
 	songArr = parse_json(file.get_as_text())
 	file.close()
 	_generate_notes()
-	pass
+	if MyUtil.selected_song == 'scale':
+		trumpetOnlyAudio.stream = load('res://Songs/Scale Trumpet Only.mp3')
+		bandAudio.stream = load('res://Songs/ScaleBand.mp3')
+	elif MyUtil.selected_song == 'WhenTheSaintsGoMarchingIn':
+		trumpetOnlyAudio.stream = load('res://Songs/The Saints Full Band.mp3')
+		bandAudio.stream = load('res://Songs/The Saints Band.mp3')
+	else:
+		trumpetOnlyAudio.stream = load('res://OGGs/FancySong Only Trumpet.ogg')
+		bandAudio.stream = load('res://OGGs/FancySong Band Only.ogg')
 
 func _generate_notes():
 	var currNoteInSongIndex = 0

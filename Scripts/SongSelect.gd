@@ -44,5 +44,5 @@ func _on_MediumButton_pressed():
 	get_tree().change_scene("res://Scenes/MainScene.tscn")
 	
 func _on_HardButton_pressed():
-	MyUtil.selected_song = "ForTheBuzzards"
+	MyUtil.selected_song = "FancySong"
 	get_tree().change_scene("res://Scenes/MainScene.tscn")
