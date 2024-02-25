@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const readline = require('readline');
 
-const fileStream = fs.createReadStream('./Bee Major Jazz Song Trumpet.mei');
+const fileStream = fs.createReadStream('./Songs/The Saints Trumpet.mei');
 
 const noteNumberObj = {
     'a': 10,
@@ -28,15 +28,23 @@ rl.on('line', (line) => {
     }
     if (line.includes('<rest')) {
         var durIndex = line.indexOf('dur=') + 5
-        outputFileContentArr.push('    [0, ' + line[durIndex] + '],')
+        var durValue = line[durIndex]
+        if (line.includes('dots=')) {
+            durValue = String(Number(durValue) + Number(durValue)/2)
+        }
+        outputFileContentArr.push('    [0, ' + durValue + '],')
     }
     if (line.includes('<note')) {
         var noteCharIndex = line.indexOf('pname=') + 7
         var durIndex = line.indexOf('dur=') + 5
+        var durValue = line[durIndex]
         var noteNumberIndex = noteNumberObj[line[noteCharIndex]]
-        outputFileContentArr.push('    [' + String(noteNumberIndex) + ', ' + line[durIndex] + '],')
+        if (line.includes('dots=')) {
+            durValue = String(Number(durValue) + Number(durValue)/2)
+        }
+        outputFileContentArr.push('    [' + String(noteNumberIndex) + ', ' + durValue + '],')
         prevNoteNumberIndex = noteNumberIndex
-        prevDurIndex = line[durIndex]
+        prevDurIndex = durValue
     }
     if (line.includes('<accid')) {
         if (line.includes('accid="s"')) {
