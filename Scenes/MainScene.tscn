@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Bee.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Valves/Target.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Sprites/GUI/Good.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/GUI/Miss.png" type="Texture" id=12]
 [ext_resource path="res://Songs/The Saints Full Band.mp3" type="AudioStream" id=13]
+[ext_resource path="res://Scenes/wrong_note.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -92,6 +93,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../wrong_note:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "miss"
@@ -132,6 +145,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../wrong_note:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "perfect"
@@ -171,6 +196,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../wrong_note:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -290,6 +327,10 @@ script = ExtResource( 4 )
 stream = ExtResource( 7 )
 volume_db = -5.0
 script = ExtResource( 5 )
+
+[node name="wrong_note" parent="." instance=ExtResource( 14 )]
+position = Vector2( 800, 450 )
+scale = Vector2( 0.15, 0.15 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 510, 300 )
