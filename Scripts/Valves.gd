@@ -1,13 +1,17 @@
 extends Node2D
 
 const NOTE_START_Y = 300
-const DIST_BETWEEN_NOTE = 3000
+const DIST_BETWEEN_NOTE_FULL = 12000
+const DIST_BETWEEN_NOTE_HALF = 6000
+const DIST_BETWEEN_NOTE_QUARTER = 3000
+const DIST_BETWEEN_NOTE_EIGHTH = 1500
 
 var noteRes = load('res://Scenes/Note.tscn')
 
 var song = 'output'
 
 var lastNote
+var nextDist = DIST_BETWEEN_NOTE_HALF
 var songArr
 var timerSoFar = 0.0
 var windowObj
@@ -44,7 +48,17 @@ func _generate_notes():
 	var positionY = NOTE_START_Y
 	# loop over array. For each, generate a note scene
 	for note in songArr:
-		positionY -= DIST_BETWEEN_NOTE# TODO move to constant
+		positionY -= nextDist
+		if note[1] == 1:
+			nextDist = DIST_BETWEEN_NOTE_FULL
+		elif note[1] == 2:
+			nextDist = DIST_BETWEEN_NOTE_HALF
+		elif note[1] == 4:
+			nextDist = DIST_BETWEEN_NOTE_QUARTER
+		elif note[1] == 8:
+			nextDist = DIST_BETWEEN_NOTE_EIGHTH
+		else:
+			print('ERROR. note[1] = ' + str(note[1]))
 		if note[0] != 0:
 			lastNote = noteRes.instance()
 			lastNote.finger1down = valveNoteMap[note[0]][0]
