@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/disappointed_fail_sfx.mp3-3faec466f0d97ccd37a79d7f412538ab.mp3str"
+
+[deps]
+
+source_file="res://sfx/disappointed_fail_sfx.mp3"
+dest_files=[ "res://.import/disappointed_fail_sfx.mp3-3faec466f0d97ccd37a79d7f412538ab.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

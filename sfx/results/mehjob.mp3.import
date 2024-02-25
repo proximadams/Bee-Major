@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mehjob.mp3-aa8c2fdb0e680127b72656d0bd3d6f0e.mp3str"
+
+[deps]
+
+source_file="res://sfx/results/mehjob.mp3"
+dest_files=[ "res://.import/mehjob.mp3-aa8c2fdb0e680127b72656d0bd3d6f0e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

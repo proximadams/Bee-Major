@@ -1,5 +1,7 @@
 extends Node2D
 
+var headStressed2Res = load('res://Sprites/Bee/HeadStressed2.png')
+
 var finger1down = false
 var finger2down = false
 var finger3down = false
@@ -11,6 +13,7 @@ var playedNoteInWindow = false
 # 0 = miss, 1 = good, 2 = perfect
 var window = 0
 
+onready var beeHead = get_tree().get_root().find_node('Head', true, false)
 onready var trumpetAudio = get_tree().get_root().find_node('TrumpetAudio', true, false)
 onready var valves = get_tree().get_root().find_node('Valves', true, false)
 
@@ -47,6 +50,7 @@ func _process(_delta):
 	
 	if 500 <= self.global_position.y and !playedNoteInWindow and !missedThisNote:
 		valves.find_node('TargetAnimationPlayer', true, false).play('miss')
+		beeHead.texture = headStressed2Res
 		missedThisNote = true
 
 	if 450 < self.global_position.y and self.modulate.a == 1.0:
