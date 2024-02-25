@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/greatjob.mp3-76a46b412d1159f10c6c90b61001920e.mp3str"
+
+[deps]
+
+source_file="res://sfx/results/greatjob.mp3"
+dest_files=[ "res://.import/greatjob.mp3-76a46b412d1159f10c6c90b61001920e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

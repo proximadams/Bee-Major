@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/goodjob.mp3-e269685569f84c350f3694c5e27c87ac.mp3str"
+
+[deps]
+
+source_file="res://sfx/results/goodjob.mp3"
+dest_files=[ "res://.import/goodjob.mp3-e269685569f84c350f3694c5e27c87ac.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/awfuljob.mp3-4c3bae162a714e06d5ff6eefe5bc9627.mp3str"
+
+[deps]
+
+source_file="res://sfx/results/awfuljob.mp3"
+dest_files=[ "res://.import/awfuljob.mp3-4c3bae162a714e06d5ff6eefe5bc9627.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

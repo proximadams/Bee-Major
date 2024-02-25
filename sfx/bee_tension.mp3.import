@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bee_tension.mp3-69f9db77ed90e8c710a2837c3da2e034.mp3str"
+
+[deps]
+
+source_file="res://sfx/bee_tension.mp3"
+dest_files=[ "res://.import/bee_tension.mp3-69f9db77ed90e8c710a2837c3da2e034.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
