@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bee Major Jazz Song Band.mp3-ce98538b27634a19a47b94fe430ca1a9.mp3str"
+
+[deps]
+
+source_file="res://Songs/Bee Major Jazz Song Band.mp3"
+dest_files=[ "res://.import/Bee Major Jazz Song Band.mp3-ce98538b27634a19a47b94fe430ca1a9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

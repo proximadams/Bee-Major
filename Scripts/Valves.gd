@@ -1,22 +1,21 @@
 extends Node2D
 
 const NOTE_START_Y = 300
-const DIST_BETWEEN_NOTE_FULL = 12000
-const DIST_BETWEEN_NOTE_HALF = 6000
-const DIST_BETWEEN_NOTE_QUARTER = 3000
-const DIST_BETWEEN_NOTE_EIGHTH = 1500
+const DIST_BETWEEN_NOTE_FULL = 7500# TODO should be 6000 but for some reason rest measures only works this way
+const DIST_BETWEEN_NOTE_HALF = 3000
+const DIST_BETWEEN_NOTE_QUARTER = 1500
+const DIST_BETWEEN_NOTE_EIGHTH = 750
 
 var noteRes = load('res://Scenes/Note.tscn')
 
 var song = 'output'
 
 var lastNote
-var nextDist = DIST_BETWEEN_NOTE_HALF
+var nextDist = -3000
 var songArr
-var timerSoFar = 0.0
 var windowObj
 
-onready var trumpetAudio = get_tree().get_root().find_node('TrumpetAudio', true, false)
+# onready var trumpetAudio = get_tree().get_root().find_node('TrumpetAudio', true, false)
 
 # TODO use flats not sharps
 var valveNoteMap = [
@@ -45,6 +44,7 @@ func _ready():
 	pass
 
 func _generate_notes():
+	var currNoteInSongIndex = 0
 	var positionY = NOTE_START_Y
 	# loop over array. For each, generate a note scene
 	for note in songArr:
@@ -66,6 +66,8 @@ func _generate_notes():
 			lastNote.finger3down = valveNoteMap[note[0]][2]
 			$notes/list.add_child(lastNote)
 			lastNote.position.y = positionY
+			lastNote.noteInSongIndex = currNoteInSongIndex
+		currNoteInSongIndex += 1
 
 func move_list_down():
 	$notes/list.global_position.y += 900
@@ -85,21 +87,10 @@ func _loop():
 	var noteArr = $notes/list.get_children()
 	$notes.global_position.y = 0
 	$notes/list.global_position.y = -900
-	timerSoFar = 0.0
 
 	for noteInst in noteArr:
 		noteInst.reset_alpha()
 
-func _process(delta):
+func _process(_delta):
 	if 900 < lastNote.global_position.y:
 		_loop()
-
-	timerSoFar += delta
-	var noteInSongIndex = int(timerSoFar + 0.5) - 2
-	if 0 <= noteInSongIndex and noteInSongIndex < songArr.size():
-		# the note to play which is an index of valveNoteMap
-		var noteIndex = songArr[noteInSongIndex][0]
-		var valveArr = valveNoteMap[noteIndex]
-		if valveArr:
-			var valveStr = MyUtil.valve_array_to_str(valveArr)
-			trumpetAudio.current_note(valveStr, noteIndex)

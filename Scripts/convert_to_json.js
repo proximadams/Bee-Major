@@ -1,9 +1,8 @@
 const fs = require('node:fs');
 const readline = require('readline');
 
-const fileStream = fs.createReadStream('./Bee_Major_Jazz_Song.mei');
+const fileStream = fs.createReadStream('./Bee Major Jazz Song Trumpet.mei');
 
-// TODO add flats/sharps?
 const noteNumberObj = {
     'a': 10,
     'b': 12,
@@ -24,15 +23,14 @@ var prevNoteNumberIndex
 var prevDurIndex
 
 rl.on('line', (line) => {
+    if (line.includes('<mRest')) {
+        outputFileContentArr.push('    [0, 1],')
+    }
     if (line.includes('<rest')) {
         var durIndex = line.indexOf('dur=') + 5
         outputFileContentArr.push('    [0, ' + line[durIndex] + '],')
     }
     if (line.includes('<note')) {
-        // TODO
-        // account for next line being one of the following
-        // <accid accid="s" />
-        // <accid accid="f" />
         var noteCharIndex = line.indexOf('pname=') + 7
         var durIndex = line.indexOf('dur=') + 5
         var noteNumberIndex = noteNumberObj[line[noteCharIndex]]
