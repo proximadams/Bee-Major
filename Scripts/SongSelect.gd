@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 
 # Declaring member variables
@@ -33,3 +33,16 @@ func load_selected_song(song):
 			print("Failed to load audio file.")
 	else:
 		print("Nothing selected!")
+
+
+func _on_EasyButton_pressed():
+	MyUtil.selected_song = "scale"
+	get_tree().change_scene("res://Scenes/MainScene.tscn")
+
+func _on_MediumButton_pressed():
+	MyUtil.selected_song = "WhenTheSaintsGoMarchingIn"
+	get_tree().change_scene("res://Scenes/MainScene.tscn")
+	
+func _on_HardButton_pressed():
+	MyUtil.selected_song = "ForTheBuzzards"
+	get_tree().change_scene("res://Scenes/MainScene.tscn")

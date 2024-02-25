@@ -1,5 +1,7 @@
 extends Node
 
+var selected_song
+
 func valve_array_to_str(valveArr):
 	var valveStr = ''
 	if valveArr[0]:
@@ -15,3 +17,5 @@ func valve_array_to_str(valveArr):
 	else:
 		valveStr += 'T'
 	return valveStr
+# [t,t,t] = '_ _ _'
+# T T T
