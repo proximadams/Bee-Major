@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/SongSelect.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/SongSelect.gd" type="Script" id=1]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.886275, 1, 0.223529, 1 )
