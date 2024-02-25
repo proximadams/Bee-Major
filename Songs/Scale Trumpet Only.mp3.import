@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Scale Trumpet Only.mp3-d84579cef7fd1b9c38e79bd97447ed56.mp3str"
+
+[deps]
+
+source_file="res://Songs/Scale Trumpet Only.mp3"
+dest_files=[ "res://.import/Scale Trumpet Only.mp3-d84579cef7fd1b9c38e79bd97447ed56.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

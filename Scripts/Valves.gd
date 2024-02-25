@@ -8,12 +8,14 @@ const DIST_BETWEEN_NOTE_EIGHTH = 708.661417323#750 * 120/127
 
 var noteRes = load('res://Scenes/Note.tscn')
 
+var song = 'scale'
+
 var lastNote
 var nextDist = -1800
 var songArr
 var windowObj
 
-# onready var trumpetAudio = get_tree().get_root().find_node('TrumpetAudio', true, false)
+onready var songFinishedSound = get_tree().get_root().find_node('SongFinishedSound', true, false)
 
 # TODO use flats not sharps
 var valveNoteMap = [
@@ -88,14 +90,10 @@ func setWindowValue(window, valveStr):
 		'valveStr': valveStr
 	}
 
-func _loop():
-	var noteArr = $notes/list.get_children()
-	$notes.global_position.y = 0
-	$notes/list.global_position.y = -900
-
-	for noteInst in noteArr:
-		noteInst.reset_alpha()
+func _end_song():
+	songFinishedSound.play_great()# TODO play different sound based
+	get_tree().paused = true
 
 func _process(_delta):
 	if 900 < lastNote.global_position.y:
-		_loop()
+		_end_song()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ScaleBand.mp3-dbb9e7502332946b8599d4928a9076ab.mp3str"
+
+[deps]
+
+source_file="res://Songs/ScaleBand.mp3"
+dest_files=[ "res://.import/ScaleBand.mp3-dbb9e7502332946b8599d4928a9076ab.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
