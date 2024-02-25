@@ -34,6 +34,9 @@ var currAmbiguousNoteObj = {
 
 var currValvesPressed = [false, false, false]
 
+onready var targetAnimationPlayer = get_tree().get_root().find_node('TargetAnimationPlayer', true, false)
+onready var valves = get_tree().get_root().find_node('Valves', true, false)
+
 func current_note(valveStr, noteIndex):
 	currAmbiguousNoteObj[valveStr] = noteIndex
 	if prevNoteIndex != noteIndex and valveStr == 'T T T' and (currValvesPressed == [false, false, false] or !Input.is_action_pressed('blow')):
@@ -62,5 +65,11 @@ func _process(_delta):
 		_refresh_stream()
 		if !self.playing:
 			self.play()
+			# Show perfect or good
+			if valves.windowObj:
+				if valves.windowObj.valveStr == MyUtil.valve_array_to_str(currValvesPressed):
+					targetAnimationPlayer.play(valves.windowObj.animName)
+				else:
+					targetAnimationPlayer.play('miss')
 	else:
 		self.playing = false

@@ -10,6 +10,7 @@ var song = 'output'
 var lastNote
 var songArr
 var timerSoFar = 0.0
+var windowObj
 
 onready var trumpetAudio = get_tree().get_root().find_node('TrumpetAudio', true, false)
 
@@ -55,8 +56,16 @@ func _generate_notes():
 func move_list_down():
 	$notes/list.global_position.y += 900
 
-func onTimePerfect():
-	$Target/AnimationPlayer.play('perfect')
+func setWindowValue(window, valveStr):
+	var animName = 'miss'
+	if window == 1:
+		animName = 'good'
+	elif window == 2:
+		animName = 'perfect'
+	windowObj = {
+		'animName': animName,
+		'valveStr': valveStr
+	}
 
 func _loop():
 	var noteArr = $notes/list.get_children()
