@@ -1,7 +1,7 @@
 extends Node2D
 
 const NOTE_START_Y = 300
-const DIST_BETWEEN_NOTE_FULL = 7500# TODO should be 6000 but for some reason rest measures only works this way
+const DIST_BETWEEN_NOTE_FULL = 6000
 const DIST_BETWEEN_NOTE_HALF = 3000
 const DIST_BETWEEN_NOTE_QUARTER = 1500
 const DIST_BETWEEN_NOTE_EIGHTH = 750
@@ -50,11 +50,18 @@ func _generate_notes():
 	for note in songArr:
 		positionY -= nextDist
 		if note[1] == 1:
+			# if note[0] == 0:
+			# 	nextDist = DIST_BETWEEN_NOTE_FULL + DIST_BETWEEN_NOTE_QUARTER
+			# else:
 			nextDist = DIST_BETWEEN_NOTE_FULL
 		elif note[1] == 2:
 			nextDist = DIST_BETWEEN_NOTE_HALF
+		elif note[1] == 3:
+			nextDist = DIST_BETWEEN_NOTE_HALF + DIST_BETWEEN_NOTE_QUARTER
 		elif note[1] == 4:
 			nextDist = DIST_BETWEEN_NOTE_QUARTER
+		elif note[1] == 6:
+			nextDist = DIST_BETWEEN_NOTE_QUARTER + DIST_BETWEEN_NOTE_EIGHTH
 		elif note[1] == 8:
 			nextDist = DIST_BETWEEN_NOTE_EIGHTH
 		else:

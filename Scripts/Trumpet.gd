@@ -2,6 +2,10 @@ extends AudioStreamPlayer2D
 
 var prevNoteIndex
 
+var headNormalRes = load('res://Sprites/Bee/HeadNormal.png')
+var headStressedRes = load('res://Sprites/Bee/HeadStressed.png')
+var headStressed2Res = load('res://Sprites/Bee/HeadStressed2.png')
+
 var soundResArr = [
 	null,
 	load('res://mp3_files_sat/_C4.mp3'),# 1. C
@@ -34,6 +38,7 @@ var currAmbiguousNoteObj = {
 
 var currValvesPressed = [false, false, false]
 
+onready var beeHead = get_tree().get_root().find_node('Head', true, false)
 onready var targetAnimationPlayer = get_tree().get_root().find_node('TargetAnimationPlayer', true, false)
 onready var valves = get_tree().get_root().find_node('Valves', true, false)
 
@@ -69,7 +74,12 @@ func _process(_delta):
 			if valves.windowObj:
 				if valves.windowObj.valveStr == MyUtil.valve_array_to_str(currValvesPressed):
 					targetAnimationPlayer.play(valves.windowObj.animName)
+					if valves.windowObj.animName == 'good':
+						beeHead.texture = headStressedRes
+					elif valves.windowObj.animName == 'perfect':
+						beeHead.texture = headNormalRes
 				else:
 					targetAnimationPlayer.play('miss')
+					beeHead.texture = headStressed2Res
 	else:
 		self.playing = false

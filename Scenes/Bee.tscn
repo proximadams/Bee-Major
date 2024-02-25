@@ -275,7 +275,7 @@ rotation = 6.19592
 texture = ExtResource( 4 )
 
 [node name="Trumpet" type="Sprite" parent="Sprites"]
-rotation = 6.19592
+rotation = -0.0872668
 texture = ExtResource( 1 )
 
 [node name="Legs" type="Sprite" parent="Sprites"]

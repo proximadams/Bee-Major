@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/The Saints Full Band.mp3-98a05621111e935a9718a757d1f6afd2.mp3str"
+
+[deps]
+
+source_file="res://Songs/The Saints Full Band.mp3"
+dest_files=[ "res://.import/The Saints Full Band.mp3-98a05621111e935a9718a757d1f6afd2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
