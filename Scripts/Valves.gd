@@ -1,14 +1,14 @@
 extends Node2D
 
 const NOTE_START_Y = 300
-const DIST_BETWEEN_NOTE_FULL = 6000
-const DIST_BETWEEN_NOTE_HALF = 3000
-const DIST_BETWEEN_NOTE_QUARTER = 1500
-const DIST_BETWEEN_NOTE_EIGHTH = 750
+const DIST_BETWEEN_NOTE_FULL = 5669.29133858#6000 * 120/127
+const DIST_BETWEEN_NOTE_HALF = 2834.64566929#3000 * 120/127
+const DIST_BETWEEN_NOTE_QUARTER = 1417.32283465#1500 * 120/127
+const DIST_BETWEEN_NOTE_EIGHTH = 708.661417323#750 * 120/127
 
 var noteRes = load('res://Scenes/Note.tscn')
 
-var song = 'output'
+var song = 'FancySong'
 
 var lastNote
 var nextDist = -1800
