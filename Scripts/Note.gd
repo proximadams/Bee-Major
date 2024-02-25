@@ -50,6 +50,8 @@ func _process(_delta):
 	
 	if 500 <= self.global_position.y and !playedNoteInWindow and !missedThisNote:
 		valves.find_node('TargetAnimationPlayer', true, false).play('miss')
+		MyUtil.scoreArr[0] += 1
+		MyUtil.check_fail_song()
 		beeHead.texture = headStressed2Res
 		missedThisNote = true
 

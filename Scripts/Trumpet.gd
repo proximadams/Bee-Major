@@ -76,10 +76,14 @@ func _process(_delta):
 					targetAnimationPlayer.play(valves.windowObj.animName)
 					if valves.windowObj.animName == 'good':
 						beeHead.texture = headStressedRes
+						MyUtil.scoreArr[1] += 1
 					elif valves.windowObj.animName == 'perfect':
 						beeHead.texture = headNormalRes
+						MyUtil.scoreArr[2] += 1
 				else:
 					targetAnimationPlayer.play('miss')
+					MyUtil.scoreArr[0] += 1
 					beeHead.texture = headStressed2Res
+				MyUtil.check_fail_song()
 	else:
 		self.playing = false
