@@ -15,7 +15,7 @@ var nextDist = -1800
 var songArr
 var windowObj
 
-# onready var trumpetAudio = get_tree().get_root().find_node('TrumpetAudio', true, false)
+onready var songFinishedSound = get_tree().get_root().find_node('SongFinishedSound', true, false)
 
 # TODO use flats not sharps
 var valveNoteMap = [
@@ -91,7 +91,7 @@ func setWindowValue(window, valveStr):
 	}
 
 func _end_song():
-	print('done!')
+	songFinishedSound.play_great()# TODO play different sound based
 	get_tree().paused = true
 
 func _process(_delta):

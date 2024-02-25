@@ -1,8 +1,8 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/Bee.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Valves/Target.png" type="Texture" id=2]
-[ext_resource path="res://Songs/ScaleBand.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Songs/The Saints Band.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Scripts/BandAudio.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Trumpet.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Valves.gd" type="Script" id=6]
@@ -12,8 +12,9 @@
 [ext_resource path="res://Sprites/Other/WhiteRectangle.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/GUI/Good.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/GUI/Miss.png" type="Texture" id=12]
-[ext_resource path="res://Songs/Scale Trumpet Only.mp3" type="AudioStream" id=13]
+[ext_resource path="res://Songs/The Saints Full Band.mp3" type="AudioStream" id=13]
 [ext_resource path="res://Scenes/wrong_note.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/SongFinishedSound.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -320,7 +321,7 @@ script = ExtResource( 4 )
 
 [node name="TrumpetOnlyAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 13 )
-volume_db = -15.0
+volume_db = -80.0
 script = ExtResource( 4 )
 
 [node name="TrumpetAudio" type="AudioStreamPlayer2D" parent="."]
@@ -331,6 +332,8 @@ script = ExtResource( 5 )
 [node name="wrong_note" parent="." instance=ExtResource( 14 )]
 position = Vector2( 800, 450 )
 scale = Vector2( 0.15, 0.15 )
+
+[node name="SongFinishedSound" parent="." instance=ExtResource( 15 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 510, 300 )
