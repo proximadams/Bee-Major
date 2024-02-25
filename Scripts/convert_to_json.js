@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const readline = require('readline');
 
-const fileStream = fs.createReadStream('./Songs/The Saints Trumpet.mei');
+const fileStream = fs.createReadStream('./Songs/FancySong.mei');
 
 const noteNumberObj = {
     'a': 10,
