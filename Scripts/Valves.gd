@@ -37,7 +37,7 @@ var valveNoteMap = [
 
 func _ready():
 	var file = File.new()
-	file.open('res://Songs/' + song + '.json', File.READ)
+	file.open('res://Songs/' + MyUtil.selected_song + '.json', File.READ)
 	songArr = parse_json(file.get_as_text())
 	file.close()
 	_generate_notes()

@@ -73,3 +73,7 @@ text = "Hard: For the Buzzards"
 margin_left = 280.0
 margin_right = 320.0
 margin_bottom = 14.0
+
+[connection signal="pressed" from="VBoxContainer/EasyButton" to="." method="_on_EasyButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/MediumButton" to="." method="_on_MediumButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HardButton" to="." method="_on_HardButton_pressed"]

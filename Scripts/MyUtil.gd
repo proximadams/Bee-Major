@@ -5,6 +5,7 @@ var scoreArr = [
 	0,# good
 	0# perfect
 ]
+var selected_song
 
 func valve_array_to_str(valveArr):
 	var valveStr = ''
@@ -27,3 +28,5 @@ func check_fail_song():
 	if 5 < scoreArr[0] and scoreArr[1] < scoreArr[0] and scoreArr[2] < scoreArr[0]:
 		songFinishedSound.play_awful()
 		get_tree().paused = true
+# [t,t,t] = '_ _ _'
+# T T T
