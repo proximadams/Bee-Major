@@ -8,7 +8,7 @@ var headStressed2Res = load('res://Sprites/Bee/HeadStressed2.png')
 
 var soundResArr = [
 	null,
-	load('res://OGGs/C4.ogg'),# 1. C
+	load('res://OGGs/C3.ogg'),# 1. C
 	load('res://OGGs/C#3.ogg'),# 2. D♭
 	load('res://OGGs/D3.ogg'),# 3. D
 	load('res://OGGs/D#3.ogg'),# 4. E♭
@@ -20,7 +20,7 @@ var soundResArr = [
 	load('res://OGGs/A3.ogg'),# 10. A
 	load('res://OGGs/A#3.ogg'),# 11. B♭
 	load('res://OGGs/B3.ogg'),# 12. B
-	load('res://OGGs/C3.ogg')# 13. C
+	load('res://OGGs/C4.ogg')# 13. C
 ]
 
 # _ _ _ means all valves are down

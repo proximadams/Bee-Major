@@ -19,7 +19,7 @@ margin_right = 568.0
 margin_bottom = 450.0
 
 [node name="EasyButton" type="Button" parent="VBoxContainer"]
-margin_right = 288.0
+margin_right = 268.0
 margin_bottom = 34.0
 theme = ExtResource( 3 )
 text = "Easy: Scale"
@@ -32,10 +32,10 @@ rect_scale = Vector2( 2, 2 )
 
 [node name="MediumButton" type="Button" parent="VBoxContainer"]
 margin_top = 38.0
-margin_right = 288.0
+margin_right = 268.0
 margin_bottom = 72.0
 theme = ExtResource( 3 )
-text = "Medium: When The Saints Go Marching In"
+text = "Medium: For the Buzzards"
 
 [node name="Score" type="Label" parent="VBoxContainer/MediumButton"]
 margin_left = 280.0
@@ -45,10 +45,10 @@ rect_scale = Vector2( 2, 2 )
 
 [node name="HardButton" type="Button" parent="VBoxContainer"]
 margin_top = 76.0
-margin_right = 288.0
+margin_right = 268.0
 margin_bottom = 110.0
 theme = ExtResource( 3 )
-text = "Hard: For the Buzzards"
+text = "Hard: When the Saints go Marching In"
 
 [node name="Score" type="Label" parent="VBoxContainer/HardButton"]
 margin_left = 280.0
